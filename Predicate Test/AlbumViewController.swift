@@ -61,8 +61,8 @@ class AlbumViewController: UICollectionViewController {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AlbumCollectionViewCell
 
     // Configure the cell
-    guard let assetsFetchResults = assetsFetchResults else { return cell }
-    guard let asset = assetsFetchResults.objectAtIndex(indexPath.item) as? PHAsset else { return cell }
+    guard let assetsFetchResults = assetsFetchResults,
+      asset = assetsFetchResults.objectAtIndex(indexPath.item) as? PHAsset else { return cell }
 
     let imageRequestOptions = PHImageRequestOptions()
     imageRequestOptions.version = .Current
